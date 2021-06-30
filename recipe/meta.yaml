@@ -16,14 +16,21 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python >=3.6
     - pip
+    - setuptools
+    - wheel
   run:
-    - python >=3.5
+    - python >=3.6
+    - typing_extensions
 
 test:
   imports:
     - asgiref
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/django/asgiref
@@ -32,6 +39,7 @@ about:
   license_file: LICENSE
   summary: ASGI in-memory channel layer
   doc_url: https://asgi.readthedocs.io/en/latest/
+  dev_url: https://github.com/django/asgiref
 
 extra:
   recipe-maintainers:
