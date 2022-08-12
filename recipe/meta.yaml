@@ -38,7 +38,7 @@ about:
   license_family: BSD
   license_file: LICENSE
   summary: ASGI in-memory channel layer
-  doc_url: https://asgi.readthedocs.io/en/latest/
+  doc_url: https://asgi.readthedocs.io/
   dev_url: https://github.com/django/asgiref
 
 extra:
