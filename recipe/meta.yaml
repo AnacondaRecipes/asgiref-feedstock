@@ -39,6 +39,10 @@ about:
   license_file: LICENSE
   license_url: https://github.com/django/asgiref/blob/main/LICENSE
   summary: ASGI in-memory channel layer
+  description: |
+    ASGI is a standard for Python asynchronous web apps and servers
+    to communicate with each other, and positioned as an asynchronous
+    successor to WSGI.
   doc_url: https://asgi.readthedocs.io/
   dev_url: https://github.com/django/asgiref
 
