@@ -22,7 +22,7 @@ requirements:
     - wheel
   run:
     - python
-    - typing_extensions
+    - typing_extensions #[py<38]
 
 test:
   imports:
