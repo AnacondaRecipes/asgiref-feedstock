@@ -21,7 +21,7 @@ requirements:
     - wheel
   run:
     - python
-    - typing_extensions >=4
+    - typing_extensions >=4 # [py<311]
 
 test:
   imports:
