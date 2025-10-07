@@ -1,17 +1,18 @@
 {% set name = "asgiref" %}
-{% set version = "3.8.1" %}
+{% set version = "3.10.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c343bd80a0bec947a9860adb4c432ffa7db769836c64238fc34bdc3fec84d590
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: d89f2d8cd8b56dada7d52fa7dc8075baa08fb836560710d38c292a7a3f78c04e
+
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
-  skip: True # [py<38]
+  skip: true  # [py<38]
 
 requirements:
   host:
@@ -21,7 +22,7 @@ requirements:
     - wheel
   run:
     - python
-    - typing_extensions >=4 # [py<311]
+    - typing_extensions >=4  # [py<311]
 
 test:
   imports:
