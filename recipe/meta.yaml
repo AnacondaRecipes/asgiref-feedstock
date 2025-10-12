@@ -25,12 +25,17 @@ requirements:
     - typing_extensions >=4  # [py<311]
 
 test:
+  source_files:
+    - tests
   imports:
     - asgiref
   requires:
     - pip
+    - pytest
+    - pytest-asyncio
   commands:
     - pip check
+    - pytest -v tests
 
 about:
   home: https://github.com/django/asgiref
@@ -42,7 +47,7 @@ about:
     ASGI is a standard for Python asynchronous web apps and servers
     to communicate with each other, and positioned as an asynchronous
     successor to WSGI.
-  doc_url: https://asgi.readthedocs.io/
+  doc_url: https://asgi.readthedocs.io
   dev_url: https://github.com/django/asgiref
 
 extra:
