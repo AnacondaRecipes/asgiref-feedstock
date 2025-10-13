@@ -1,17 +1,18 @@
 {% set name = "asgiref" %}
-{% set version = "3.8.1" %}
+{% set version = "3.10.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c343bd80a0bec947a9860adb4c432ffa7db769836c64238fc34bdc3fec84d590
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: d89f2d8cd8b56dada7d52fa7dc8075baa08fb836560710d38c292a7a3f78c04e
+
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
-  skip: True # [py<38]
+  skip: true  # [py<38]
 
 requirements:
   host:
@@ -21,15 +22,20 @@ requirements:
     - wheel
   run:
     - python
-    - typing_extensions >=4 # [py<311]
+    - typing_extensions >=4  # [py<311]
 
 test:
+  source_files:
+    - tests
   imports:
     - asgiref
   requires:
     - pip
+    - pytest
+    - pytest-asyncio
   commands:
     - pip check
+    - pytest -v tests
 
 about:
   home: https://github.com/django/asgiref
@@ -41,7 +47,7 @@ about:
     ASGI is a standard for Python asynchronous web apps and servers
     to communicate with each other, and positioned as an asynchronous
     successor to WSGI.
-  doc_url: https://asgi.readthedocs.io/
+  doc_url: https://asgi.readthedocs.io
   dev_url: https://github.com/django/asgiref
 
 extra:
