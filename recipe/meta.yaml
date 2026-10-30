@@ -2,7 +2,7 @@
 {% set version = "3.13.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
@@ -12,7 +12,7 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
-  skip: true  # [py<310]
+  skip: true  # [py<311]
 
 requirements:
   host:
@@ -22,7 +22,6 @@ requirements:
     - wheel
   run:
     - python
-    - typing_extensions >=4  # [py<311]
 
 test:
   source_files:
@@ -35,7 +34,7 @@ test:
     - pytest-asyncio
   commands:
     - pip check
-    - pytest -v tests
+    - pytest -vv tests
 
 about:
   home: https://github.com/django/asgiref
